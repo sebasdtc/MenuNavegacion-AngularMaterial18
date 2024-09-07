@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="fixed z-10 top-0 p-4 shadow-topbar">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>PROGRAMMING</span>
+  <span class="flex-auto" ></span>
+  <button
+        class="theme-switch"
+        type="button"
+        aria-label="Toggle theme"
+        mat-icon-button
+        (click)="toggleTheme()"
+        matTooltip="Toggle theme"
+      >
+        <mat-icon>
+          {{ theme() === "light" ? "dark_mode" : "light_mode" }}
+        </mat-icon>
+      </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="top-16">
+  <mat-sidenav #sidenav opened="true" mode="side" [fixedInViewport]="true"
+    class="p-5 !w-72 !rounded-r-none"
+    [fixedTopGap]="64">
+    <mat-nav-list>
+      @for (item of menuItems; track $index) {
+        <app-menu-item [item]="item"></app-menu-item>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="px-8 py-5">
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

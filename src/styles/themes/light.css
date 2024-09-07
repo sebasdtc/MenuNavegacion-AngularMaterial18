@@ -1,0 +1,61 @@
+:root,
+:host {
+  --sys-background: #f9f9ff;
+  --sys-on-background: #191c20; /* texto #191c20*/
+  --sys-surface: #ffffff;
+  --sys-surface-dim: #d9dae0;
+  --sys-surface-bright: #f9f9ff;
+  --sys-surface-container-lowest: #ffffff;
+  --sys-surface-container-low: #f2f3fa;
+  --sys-surface-container: #ededf4;
+  --sys-surface-container-high: #e7e8ee;
+  --sys-surface-container-highest: #e1e2e9;
+  --sys-on-surface: #0d2a72; /*#191c20*/
+  --sys-surface-variant: #dfe2eb;
+  --sys-on-surface-variant: #8b9bcc; /*iconos  #43474e*/
+  --sys-inverse-surface: #2e3035;
+  --sys-inverse-on-surface: #f0f0f7;
+  --sys-outline: #73777f;
+  --sys-outline-variant: #c3c6cf;
+  --sys-shadow: #000000;
+  --sys-scrim: #000000;
+  --sys-surface-tint: #3b608f;
+  --sys-primary: #3b608f;
+  --sys-on-primary: #ffffff;
+  --sys-primary-container: #d4e3ff;
+  --sys-on-primary-container: #001c39;
+  --sys-inverse-primary: #a5c9fe;
+  --sys-secondary: #3b608f;
+  --sys-on-secondary: #ffffff;
+  --sys-secondary-container: #d4e3ff;
+  --sys-on-secondary-container: #001c39;
+  --sys-tertiary: #745086;
+  --sys-on-tertiary: #ffffff;
+  --sys-tertiary-container: #f6d9ff;
+  --sys-on-tertiary-container: #2c0b3e;
+  --sys-error: #904a43;
+  --sys-on-error: #ffffff;
+  --sys-error-container: #ffdad5;
+  --sys-on-error-container: #3b0907;
+  --sys-neutral: #75777d;
+  --sys-neutral-variant: #73777f;
+  --sys-primary-fixed: #d4e3ff;
+  --sys-primary-fixed-dim: #a5c9fe;
+  --sys-on-primary-fixed: #001c39;
+  --sys-on-primary-fixed-variant: #204876;
+  --sys-secondary-fixed: #d4e3ff;
+  --sys-secondary-fixed-dim: #a5c8fe;
+  --sys-on-secondary-fixed: #001c39;
+  --sys-on-secondary-fixed-variant: #214876;
+  --sys-tertiary-fixed: #f6d9ff;
+  --sys-tertiary-fixed-dim: #e2b7f4;
+  --sys-on-tertiary-fixed: #2c0b3e;
+  --sys-on-tertiary-fixed-variant: #5b396d;
+  --sys-inverse-secondary: #a5c8fe;
+  --sys-inverse-tertiary: #e2b7f4;
+  --sys-inverse-error: #ffb4ab;
+  --sys-error-fixed: #ffdad5;
+  --sys-error-fixed-dim: #ffb4ab;
+  --sys-on-error-fixed: #3b0907;
+  --sys-on-error-fixed-variant: #73342d;
+}

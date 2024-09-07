@@ -1,0 +1,52 @@
+<mat-dialog-content class="w-96">
+  <mat-toolbar class="!px-0">
+    <span>{{titulo}} usuario</span>
+    <span class="flex-auto"></span>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <form [formGroup]="usuarioForm" class="flex flex-col gap-2">
+    <!-- Input Usuario -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input matInput formControlName="nombreUsuario" placeholder="Nombre de Usuario">
+      @if (usuarioForm.get('nombreUsuario')?.hasError('required')) {
+        <mat-error>
+          El nombre de usuario es requerido
+        </mat-error>
+      }
+    <!-- Input Clave -->
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Clave</mat-label>
+      <input matInput formControlName="clave" placeholder="Clave" type="password">
+      @if (usuarioForm.get('clave')?.hasError('required')) {
+        <mat-error>
+          La clave es requerida
+        </mat-error>
+      }
+    </mat-form-field>
+    <!-- Input Rol -->
+    <mat-form-field appearance="fill">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="idRol">
+        @for (item of roles; track item.id) {
+          <mat-option [value]="item.id">
+            {{item.nombre}}
+          </mat-option>
+        }
+      </mat-select>
+      @if (usuarioForm.get('idRol')?.hasError('required')) {
+        <mat-error>
+          El rol es requerido
+        </mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="onSave()" [disabled]="!usuarioForm.valid" type="submit" >Guardar</button>
+</mat-dialog-actions>

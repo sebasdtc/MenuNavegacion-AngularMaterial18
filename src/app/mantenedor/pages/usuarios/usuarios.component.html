@@ -1,0 +1,86 @@
+<p class="text-2xl font-semibold">Mantenedor Usuarios</p>
+<br>
+<mat-card>
+  <mat-card-actions class="my-5 !px-4">
+    <div class="w-full flex flex-row items-center justify-between">
+      <div class="flex gap-3 items-center">
+        <button mat-raised-button aria-label="Example icon button with a menu icon">
+          <mat-icon>insert_chart</mat-icon>
+          Excel
+        </button>
+        <button mat-raised-button aria-label="Example icon button with a menu icon">
+          <mat-icon>picture_as_pdf</mat-icon>
+          PDF
+        </button>
+        <button mat-raised-button aria-label="Example icon button with a menu icon">
+          <mat-icon>text_snippet</mat-icon>
+          CVS
+        </button>
+      </div>
+      <button mat-flat-button (click)="openDialog(undefined)">Nuevo Usuario</button>
+    </div>
+  </mat-card-actions>
+  <mat-card-content>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Filtar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="buscar..." #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Nombre de Usuario Column -->
+      <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreUsuario}} </td>
+      </ng-container>
+
+      <!-- Clave Column -->
+      <ng-container matColumnDef="clave">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Clave </th>
+        <td mat-cell *matCellDef="let element"> {{element.clave}} </td>
+      </ng-container>
+
+      <!-- Activo Column -->
+      <ng-container matColumnDef="esActivo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Activo </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-slide-toggle [checked]="element.esActivo" (change)="toggleEsActivo(element)">
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <!-- Rol Column -->
+      <ng-container matColumnDef="Rol">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol </th>
+        <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+      </ng-container>
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="openDialog(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteUsuarios(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Seleccionar pagina de usuarios">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>
